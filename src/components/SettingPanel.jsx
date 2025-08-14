@@ -1,6 +1,6 @@
 import RatioSetting from "./RatioSetting";
 
-const SettingPanel = () => {
+const SettingPanel = ({ models }) => {
   return (
     <div className="border border-zinc-700/70 mb-6 rounded-lg p-4">
       <div className="flex items-center justify-between mb-4">
@@ -16,12 +16,11 @@ const SettingPanel = () => {
             Model
           </label>
           <select className="w-full px-3 py-2 bg-zinc-900/10 border border-zinc-700/70 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
-            <option className="bg-zinc-900" value="flux">
-              Flux
-            </option>
-            <option className="bg-zinc-900" value="turbo">
-              Turbo
-            </option>
+            {models.map((model) => (
+              <option key={model} className="bg-zinc-900" value={model}>
+                {model}
+              </option>
+            ))}
           </select>
         </div>
 

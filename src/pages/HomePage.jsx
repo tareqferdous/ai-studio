@@ -1,8 +1,11 @@
 import ImageSection from "../components/ImageSection";
 import SearchInput from "../components/SearchInput";
 import SettingPanel from "../components/SettingPanel";
+import useModels from "../hooks/useModels";
 
 const HomePage = () => {
+  const models = useModels();
+
   return (
     <main className="relative z-10">
       <h2 className="text-4xl font-bold mb-8">
@@ -11,7 +14,7 @@ const HomePage = () => {
       {/* Search Input */}
       <SearchInput />
       {/* Settings Panel  */}
-      <SettingPanel />
+      <SettingPanel models={models.modelTypes} />
       {/* Image Presets Section */}
       <ImageSection />
     </main>
