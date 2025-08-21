@@ -1,6 +1,11 @@
 import RatioSetting from "./RatioSetting";
 
-const SettingPanel = ({ models }) => {
+const SettingPanel = ({
+  models,
+  handleFormChange,
+  form,
+  handleAspectRatio,
+}) => {
   return (
     <div className="border border-zinc-700/70 mb-6 rounded-lg p-4">
       <div className="flex items-center justify-between mb-4">
@@ -15,7 +20,11 @@ const SettingPanel = ({ models }) => {
           >
             Model
           </label>
-          <select className="w-full px-3 py-2 bg-zinc-900/10 border border-zinc-700/70 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+          <select
+            name="model"
+            onChange={handleFormChange}
+            className="w-full px-3 py-2 bg-zinc-900/10 border border-zinc-700/70 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+          >
             {models.map((model) => (
               <option key={model} className="bg-zinc-900" value={model}>
                 {model}
@@ -33,7 +42,9 @@ const SettingPanel = ({ models }) => {
           </label>
           <input
             type="number"
-            disabled="true"
+            name="seed"
+            value={form.seed}
+            onChange={handleFormChange}
             className="w-full bg-zinc-900/10 px-3 py-2 border border-zinc-700/70 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             placeholder="Random"
           />
@@ -48,7 +59,9 @@ const SettingPanel = ({ models }) => {
           </label>
           <input
             type="number"
-            value="1024"
+            name="width"
+            value={form.width}
+            onChange={handleFormChange}
             className="w-full bg-zinc-900/10 px-3 py-2 border border-zinc-700/70 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           />
         </div>
@@ -62,13 +75,14 @@ const SettingPanel = ({ models }) => {
           </label>
           <input
             type="number"
-            value="1024"
+            name="height"
+            value={form.height}
+            onChange={handleFormChange}
             className="w-full bg-zinc-900/10 px-3 py-2 border border-zinc-700/70 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           />
         </div>
 
-        {/* Aspect Ratio Setting */}
-        <RatioSetting />
+        <RatioSetting handleAspectRatio={handleAspectRatio} />
       </div>
     </div>
   );

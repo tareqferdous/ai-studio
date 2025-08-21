@@ -1,5 +1,4 @@
-import DemoImage from "../assets/images/ai-image-1.jpeg";
-const ImageCard = () => {
+const ImageCard = ({ imageUrl }) => {
   return (
     <div className="image-card rounded-xl overflow-hidden cursor-pointer relative">
       <div className="absolute bottom-2 right-2  p-1 ">
@@ -22,9 +21,9 @@ const ImageCard = () => {
         </svg>
       </div>
       <img
-        src={DemoImage}
+        src={imageUrl}
         alt="Anime character in kimono"
-        className="w-full h-48 object-cover"
+        className="w-full h-3/5 object-cover"
       />
     </div>
   );

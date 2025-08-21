@@ -1,4 +1,4 @@
-const SearchInput = () => {
+const SearchInput = ({ form, handleFormChange, generateImage }) => {
   return (
     <div className="relative mb-8 rounded-full overflow-hidden border border-zinc-700 bg-zinc-900/10 backdrop-blur-sm">
       <div className="flex items-center">
@@ -20,9 +20,15 @@ const SearchInput = () => {
         <input
           type="text"
           placeholder="Create with Prompts"
+          name="prompt"
+          value={form.prompt}
+          onChange={handleFormChange}
           className="outline-none w-full py-4 px-2 bg-transparent text-white placeholder-zinc-400 text-lg"
         />
-        <button className="bg-zinc-800 hover:bg-zinc-700 transition-colors p-4 mr-1 rounded-full">
+        <button
+          onClick={generateImage}
+          className="bg-zinc-800 hover:bg-zinc-700 transition-colors p-4 mr-1 rounded-full"
+        >
           <svg
             className="w-6 h-6 text-white transform rotate-90"
             fill="currentColor"
